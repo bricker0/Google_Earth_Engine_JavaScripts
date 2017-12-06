@@ -6,10 +6,9 @@ Google Earth Engine (GEE) has lots of tutorials that are easy to follow, easy to
 
 # 1. See if my script renders what I want
 
-In the simple example below - I am calling an image to render, it is calling it by it's id and then telling it to render in the map box. Notice, you are not adding any sort of style at all. Just load the data.
+In the simple example below - I am calling an image to render, it is calling it by it's id and then telling it to render in the map box. Notice, you are not adding any sort of style at all, just loading the data.
 
-
-Below, you will see that I named the variable elevation because it is calling a dataset related to elevationenter the following script into the script pane in GEE: 
+Below, you will see that I named the variable elevation because it is calling a dataset related to elevation. Enter the following script into the script pane in GEE: 
 
 ```
 // Instantiate an image with the Image constructor to call. 
@@ -18,20 +17,17 @@ var elevation = ee.Image('USGS/NED');
 
 //this next line is the one you reuse all the time - render the variable you made in the map window
 Map.addLayer(elevation);
-
-
 ```
 
 # 2. Look up what data and data values are available in the data I am calling
 You can print information about the data you are working with into the console pane by adding the following to your script
+   
+    print('elevation', elevation);
 
-```
-print('elevation', elevation);
-```
-remember to change the variable to whatever you named your variable. Click on console and information about the one elevation band will be revealed.
+Remember to change the variable to whatever you named your variable. Click on console and information about the one elevation band will be revealed.
 
 # 3. export imagery
-If you simply say print the image, it will print you an ungly grey sateillite image, you have to be very specific about what you want to export. In this example, notice I am setting the projection, I am setting the pallet, only loading one band, and strechting it. 
+If you simply say _print the image_, it will print you an ungly grey satellite image, you have to be very specific about what you want to export. In this example, notice I am setting the projection, I am setting the pallette, only loading one band, and stretching it. 
 
 ```
 
@@ -70,9 +66,7 @@ You can make movies too! Here is the script just like the example Google provide
 
 [![Time lapse video](http://faculty.washington.edu/bricker0/GEE_Seattle.png)](http://faculty.washington.edu/bricker0/SeattleVegetation451.mp4)
 
-[![Watch the video](http://faculty.washington.edu/bricker0/SeattleVegetation451.mp4)
-
-
+[Watch the video](http://faculty.washington.edu/bricker0/SeattleVegetation451.mp4)
 
 Here is the script to modify and make your own! 
 ```
@@ -108,5 +102,5 @@ Export.video.toDrive({
 This is so fun!
 
 # 4. Finding single images
-I am sure there is an easier way, but I like using <a href="http://snapsat.org/">SnapSat</a> when I am dealing with anything LandSat8 related. With this tool you can easily look up individual file names, path and row of an area. I know you can set intersections to find these using GEE, but I just really like this tool. 
+I am sure there is an easier way, but I like using [SnapSat](http://snapsat.org/) when I am dealing with anything LandSat8 related. With this tool you can easily look up individual file names, path and row of an area. I know you can set intersections to find these using GEE, but I just really like this tool. 
 
