@@ -60,16 +60,15 @@ Export.image.toDrive({
 ```
 The output looks like this...not very pretty...but hopefully this helps anyway. 
 
-![GEE](https://raw.githubusercontent.com/bricker0/assets_for_readmes/master/Google_Earth_Engine_JavaScripts/yellow.tif)
+[![See image](http://faculty.washington.edu/bricker0/yellow.pdf)](http://faculty.washington.edu/bricker0/yellow.pdf)
 
-add this image Google_Earth_Engine_JavaScripts/GEE_Seattle.png [GEE](https://raw.githubusercontent.com/bricker0/assets_for_readmes/master/Google_Earth_Engine_JavaScripts/GEE_Seattle.png)
+You can make movies too! Here is the script just like the example Google provides here, but for Seattle! LandSat 5 images from 1991-2011, showing 12 images per second, and only images with 30% or less cloud cover.
+```
+```
 
+[![Time lapse video](http://faculty.washington.edu/bricker0/GEE_Seattle.png)](http://faculty.washington.edu/bricker0/SeattleVegetation451.mp4)
 
-![GEE](https://raw.githubusercontent.com/bricker0/assets_for_readmes/master/Google_Earth_Engine_JavaScripts/yellow.tif)
-
-You can make movies too! Here is the script just like the example Google provides, but for Seattle! 
-
-[![Time lapse video](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](http://faculty.washington.edu/bricker0/SeattleVegetation451.mp4)
+[![Watch the video](http://faculty.washington.edu/bricker0/SeattleVegetation451.mp4)
 
 # 4. Finding single images
 I am sure there is an easier way, but I like using <a href="http://snapsat.org/">SnapSat</a> when I am dealing with anything LandSat8 related. With this tool you can easily look up individual file names, path and row of an area. I know you can set intersections to find these using GEE, but I just really like this tool. 
