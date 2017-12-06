@@ -60,15 +60,52 @@ Export.image.toDrive({
 ```
 The output looks like this...not very pretty...but hopefully this helps anyway. 
 
-[![See image](http://faculty.washington.edu/bricker0/yellow.pdf)](http://faculty.washington.edu/bricker0/yellow.pdf)
+[![See image](http://faculty.washington.edu/bricker0/yellow.png)](http://faculty.washington.edu/bricker0/yellow.png)
+
 
 You can make movies too! Here is the script just like the example Google provides here, but for Seattle! LandSat 5 images from 1991-2011, showing 12 images per second, and only images with 30% or less cloud cover.
-```
-```
+
+
+
 
 [![Time lapse video](http://faculty.washington.edu/bricker0/GEE_Seattle.png)](http://faculty.washington.edu/bricker0/SeattleVegetation451.mp4)
 
 [![Watch the video](http://faculty.washington.edu/bricker0/SeattleVegetation451.mp4)
+
+
+
+Here is the script to modify and make your own! 
+```
+// Load a Landsat 5 image collection.
+var collection = ee.ImageCollection('LANDSAT/LT05/C01/T1_TOA')
+  // Tacoma area.
+  .filter(ee.Filter.eq('WRS_PATH', 46))
+  .filter(ee.Filter.eq('WRS_ROW', 27))
+  // Filter cloudy scenes.
+  .filter(ee.Filter.lt('CLOUD_COVER', 30))
+  // Get 20 years of imagery.
+  .filterDate('1991-01-01','2011-12-30')
+  // Need to have 3-band imagery for the video.
+  .select(['B4', 'B5', 'B1'])
+  // Need to make the data 8-bit.
+  .map(function(image) {
+    return image.multiply(512).uint8();
+  });
+
+
+// Define the area to export.
+var polygon = ee.Geometry.Rectangle([-122.5854, 47.1769, -121.9318, 48.0472]);
+
+// Export (change dimensions or scale if you want higher quality).
+Export.video.toDrive({
+  collection: collection,
+  description: 'SeattleVegetation451',
+  dimensions: 720,
+  framesPerSecond: 12,
+  region: polygon
+});
+```
+This is so fun!
 
 # 4. Finding single images
 I am sure there is an easier way, but I like using <a href="http://snapsat.org/">SnapSat</a> when I am dealing with anything LandSat8 related. With this tool you can easily look up individual file names, path and row of an area. I know you can set intersections to find these using GEE, but I just really like this tool. 
