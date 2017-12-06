@@ -60,7 +60,11 @@ Export.image.toDrive({
 ```
 The output looks like this...not very pretty...but hopefully this helps anyway. 
 
-![alt text](http://Google_Earth_Engine_JavaScripts/yellow.tif)  
+![checkout this image](http://Google_Earth_Engine_JavaScripts/yellow.tif)  
+
+You can make movies too! Here is the script just like the example Google provides, but for Seattle! 
+
+
 
 # 4. Finding single images
 I am sure there is an easier way, but I like using <a href="http://snapsat.org/">SnapSat</a> when I am dealing with anything LandSat8 related. With this tool you can easily look up individual file names, path and row of an area. I know you can set intersections to find these using GEE, but I just really like this tool. 
